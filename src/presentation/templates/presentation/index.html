@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+          <h2>Présentation</h2>
+          <p></p>
+      </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+
+                {{presentation |safe }}
+
+            </div>
+
+          </div>
+
+<!--          <div class="col-lg-3">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h3>Project information</h3>-->
+<!--              <ul>-->
+<!--                <li><strong>Category</strong> <span>Web design</span></li>-->
+<!--                <li><strong>Client</strong> <span>ASU Company</span></li>-->
+<!--                <li><strong>Project date</strong> <span>01 March, 2020</span></li>-->
+<!--                <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>-->
+<!--                <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+            <div class="col-lg-3">
+                    <div class="portfolio-info">
+                        <h3>Adresse</h3>
+                        <ul>
+                            <li><strong><i class="fa-solid fa-location-dot"></i></strong> <strong>Kalabanco pres du Marche <br> Immeuble SOMOYAF Station No 2 <br>Bamako Mali</strong></li>
+                            <li><strong><i class="fa-solid fa-phone"></i>  Appelez-nous:</strong> <strong>+223 20 71 22 22 / 66 95 49 94</strong></li>
+                            <li><strong><i class="fa-solid fa-envelope"></i> Envoyer-nous un e-mail</strong> <span><a href="mailto:kamba.dembele@cafemali.com" target="_blank">kamba.dembele@cafemali.com</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+
+
+{% endblock body %}

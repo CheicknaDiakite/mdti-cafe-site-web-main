@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} CAFE-SARL - {{ offre.titre }} {% endblock title %}
+
+{% block body %}
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center"
+        style="background-image: url('');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>{{ offre.titre }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href>Home</a></li>
+                <li>{{ offre.titre }}</li>
+            </ol>
+        </div>
+    </nav>
+</div>
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-between gy-4 mt-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-description">
+                    <h2>{{ offre.titre }}</h2>
+                    <p>
+                        {{ offre.description|safe }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="portfolio-info">
+                    <h3>Details</h3>
+                    <ul>
+                        <li>
+                            <strong>Date poste</strong> 
+                            <span>
+                                {{ offre.date }}
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Date</strong> 
+                            <span>
+                                {{ offre.date_limite }}
+                            </span>
+                        </li>
+                        <a
+                                href="{% url 'postuler' offre.id %}"
+                                class="btn-visit align-self-start">Postuler</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock body %}

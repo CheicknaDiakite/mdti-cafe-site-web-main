@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} CAFE-SARL - {{ detailActualite.titre }} {% endblock title %}
+{% block body %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center"
+        style="background-image: url('');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>{{ detailActualite.titre }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href="">Home</a></li>
+                <li>{{ detailActualite.titre }}</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+
+        <div class="position-relative h-100">
+            <div class="">
+                <div class="swiper-wrapper align-items-center">
+
+                    <div class="">
+                        <img src="{% static detailActualite.image %}" width="300" height="300" alt>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-description">
+                    <h2>{{ detailActualite.titre }}</h2>
+                    <p>
+                        {{ detailActualite.description }}
+                    </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="portfolio-info">
+                        <h3>Adresse</h3>
+                        <ul>
+                            <li><strong><i class="fa-solid fa-location-dot"></i></strong> <strong>Kalabanco pres du Marche <br> Immeuble SOMOYAF Station No 2 <br>Bamako Mali</strong></li>
+                            <li><strong><i class="fa-solid fa-phone"></i>  Appelez-nous:</strong> <strong>+223 20 71 22 22 / 66 95 49 94</strong></li>
+                            <li><strong><i class="fa-solid fa-envelope"></i> Envoyer-nous un e-mail</strong> <span><a href="mailto:kamba.dembele@cafemali.com" target="_blank">kamba.dembele@cafemali.com</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</section><!-- End Portfolio Details Section -->
+    {% endblock body %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} CAFE-SARL - Formations {% endblock title %}
+
+{% block body %}
+
+<section id="services" class="services sections-bg">
+
+    <div class="container" data-aos="fade-up">
+    <div>
+        <h1 class="text-center">
+            S'inscrire sur la formation {{ formation.titre}}
+        </h1>
+        <form method="post" action>
+            {% csrf_token %}
+            <div class="row">
+<!--                <div class="col-md-3"></div>-->
+                <div class="col-md-6">
+                    <div class="from-group">
+                        <label for="prenom">Prénom:</label>
+                        <input type="text" name="prenom" class="form-control">
+                    </div>
+                    <div class="from-group">
+                        <label for="prenom">Email:</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+
+                    <div class="from-group">
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" class="form-control">
+                    </div>
+                    <div class="from-group">
+                        <label for="nom">Telephone:</label>
+                        <input type="number" name="telephone"
+                            class="form-control">
+                    </div>
+                    <div class="from-group">
+                        <label for="nom">Motivation:</label>
+                        <textarea name="message" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="py-2 text-center">
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</section>
+
+
+{% endblock body %}

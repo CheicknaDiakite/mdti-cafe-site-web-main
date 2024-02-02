@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block body %}
+
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+
+        <div class="container">
+            <div class="container text-center h3 mb-4 mt-4">Postuler</div>
+        </div>
+
+        <div class="container">
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{id}}">
+                 {% csrf_token %}
+
+                <div class="row">
+                    <div class="form-group col-md-6 mb-4">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input id="nom" name="nom" type="text" class="form-control"  required >
+                    </div>
+
+                    <div class="form-group col-md-6 mb-4">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input id="prenom" name="prenom" type="text" class="form-control"  required>
+                    </div>
+
+                    <div class="form-group col-md-6 mb-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group col-md-6 mb-4">
+                         <label for="numero" class="form-label">Numéro</label>
+                        <input type="tel" name="numero" id="numero"  class="form-control"  required>
+                    </div>
+
+                    <div class="form-group mb-4 col-md-6">
+                        <label for="date_naissance" class="form-label">Date de naissance</label>
+                        <input type="date" name="date_naissance" class="form-control" id="date_naissance" required>
+                    </div>
+
+                      <div class="form-group mb-4 col-md-6">
+                        <label for="sexe" class="form-label">Vous êtes</label>
+                          <select name="sexe" class="form-control" id="sexe" required>
+                              <option value="Femme">Femme</option>
+                              <option value="Homme">Homme</option>
+                          </select>
+                      </div>
+
+                     <div class="form-group mb-4 col-md-6">
+                        <label for="quartier" class="form-label">Quartier/Ville</label>
+                        <input type="text" name="quartier" class="form-control" id="quartier" required>
+                    </div>
+
+                    <div class="form-group col-md-6 mb-4">
+                        <label for="dernier_diplome" class="form-label">Dernier dipôme</label>
+
+                        <select class="form-select" aria-label="Default select example" name="dernier_diplome" id="dernier_diplome" required>
+                          <option  value="" selected></option>
+
+                            {% for diplome in all_diplome %}
+                                {% if emploi.niveau_minimum.priorite <= diplome.priorite %}
+                                    <option value="{{diplome.id}}">{{diplome.nom}}</option>
+                                {% endif %}
+
+
+                            {%endfor%}
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-4 form-group">
+                         <label for="files" class="form-label">Vos documents</label> <br>
+                        <input type="file" name="files" id="files" accept="application/pdf" multiple required>
+                    </div>
+
+                </div>
+                
+                <div class=" form-group mt-4 mb-4 text-center">
+                    <input type="submit" value="Postuler" name="postuler" class="btn btn-primary">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock body %}

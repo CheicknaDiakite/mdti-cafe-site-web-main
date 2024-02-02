@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} CAFE-SARL - Formations {% endblock title %}
+
+{% block body %}
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center"
+        style="background-image: url('');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>{{ formation_detail.titre }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href>Home</a></li>
+                <li>{{ formation_detail.titre }}</li>
+            </ol>
+        </div>
+    </nav>
+</div>
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-between gy-4 mt-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-description">
+                    <h2>{{ formation_detail.titre }}</h2>
+                    <p>
+                        {{ formation_detail.description|safe }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="portfolio-info">
+                    <h3>Details</h3>
+                    <ul>
+                        <li><strong>Date debu</strong> <span>{{formation_detail.date_debut }}</span></li>
+                        <li><strong>Date Fin</strong> <span>{{formation_detail.date_fin }}</span></li>
+                        <li><a
+                                href="{% url 'inscription' categorie.titre formation_detail.titre %}"
+                                class="btn-visit align-self-start">S'inscrire</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+{% endblock body %}

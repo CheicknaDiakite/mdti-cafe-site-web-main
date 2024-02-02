@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} CAFE-SARL - Actualites {% endblock title %}
+{% block body %}
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio sections-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Actualites</h2>
+            <!-- <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi
+                llum nostrum enim velit qui ut et autem uia reprehenderit sunt
+                deleniti</p> -->
+        </div>
+
+        <div class="portfolio-isotope" data-portfolio-filter="*"
+            data-portfolio-layout="masonry" data-portfolio-sort="original-order"
+            data-aos="fade-up" data-aos-delay="100">
+
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="row gy-4 portfolio-container">
+                {% for item in actualite %}
+                <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <a href="{% static item.image %}"
+                            data-gallery="portfolio-gallery-app"
+                            class="glightbox"><img
+                                src="{% static item.image %}"
+                                class="img-fluid" alt></a>
+                        <div class="portfolio-info">
+                            <h4><a href="{% url 'detailActualite' item.titre %}"
+                                    title="More Details">{{ item.titre }}</a></h4>
+                        </div>
+                    </div>
+                </div>
+                        {% empty %}
+                        <div class="text-center h3">Pas d'actualités pour le moment</div>
+                {% endfor %}
+            </div>
+                </div>
+
+                <div class="col-md-2">
+                    <h1>Archives</h1>
+
+                    <li><a href="{% url 'actualite_index'  %}">Tous (*)</a></li>
+
+
+                    {%for archive in archives %}
+                        <li><a href="{% url 'actualite_index' annee=archive.mois %}">{{ archive.mois | date:"F Y" }} ({{archive.nombre}})</a></li>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->
+
+{% endblock body %}

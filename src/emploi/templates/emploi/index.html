@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} CAFE-SARL - Offres {% endblock title %}
+
+{% block body %}
+
+<div class="container mb-2">
+    <h1 class="text-center mt-4 mb-4">Les offres d'emplois</h1>
+    {% for items in offres %}
+    {% if aujourdhui <= items.date_limite %}
+    <div class="card mb-2 shadow">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{% static items.image %}" class="card-img"
+                    alt="Image">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ items.titre }}</h5>
+                    <!-- <p class="card-text">Description de la carte.</p> -->
+                    <p class="card-text"><small class="text-muted">Date limite :
+                            {{ items.date_limite }}</small>
+                    </p>
+                </div>
+                <a href="{% url 'emploi_detail' items.titre %}" class="btn btn-primary btn-sm ml-auto mr-3 my-3">Détails</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+{% endblock body %}

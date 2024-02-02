@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} CAFE-SARL - Formations {% endblock title %}
+
+{% block body %}
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center"
+        style="background-image: url('');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>{{ categorie.titre }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ol>
+                <li><a href>Home</a></li>
+                <li>{{ categorie.titre }}</li>
+            </ol>
+        </div>
+    </nav>
+</div>
+<!-- ======= Our Services Section ======= -->
+<section id="services" class="services sections-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Les Formations</h2>
+            <p>{{ categorie.description }}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+                    {% for item in formations %}
+                    <div class="col-lg-6 col-md-6">
+                        <div class="service-item position-relative text-center">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="image-container mb-3">
+                                    <img src="{% static item.image %}"
+                                        width="96" height="96"
+                                        alt="{{ item.titre }}" />
+                                </div>
+                                <div class="content-container">
+                                    <h3>{{ item.titre }}</h3>
+                                    <p>
+                                        <span>Date debut: {{ item.date_debut }}</span> <br>
+                                        <span> Date Fin: {{ item.date_fin }}</span>
+                                    </p>
+                                    <a
+                                        href="{% url 'formation_detail' item.category.titre item.titre  %}"
+                                        class="readmore stretched-link">
+                                        Détails <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center h3">Pas de Catégorie pour le moment</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock body %}
